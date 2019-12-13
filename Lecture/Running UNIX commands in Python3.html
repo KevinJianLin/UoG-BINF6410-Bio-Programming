@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div>import subprocess</div>
+<div></div>
+<div>def subprocess_command(command):<br />&nbsp;&nbsp;&nbsp; """<br />&nbsp;&nbsp;&nbsp; Issue multiple commands to the command line.<br />&nbsp;&nbsp;&nbsp; From: <a href="https://stackoverflow.com/questions/17742789/running-multiple-bash-commands-with-subprocess">https://stackoverflow.com/questions/17742789/running-multiple-bash-commands-with-subprocess</a><br />&nbsp;&nbsp;&nbsp; """<br />&nbsp;&nbsp;&nbsp; process = subprocess.Popen(command,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stdout=subprocess.PIPE, <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; shell=True)</div>
+<div>&nbsp;&nbsp;&nbsp; proc_stdout = process.communicate()[0].strip()</div>
+<div></div>
+<div></div>
+<div>example usage:</div>
+<div>subprocess_command("ls")</div>
+</body>
+</html>
