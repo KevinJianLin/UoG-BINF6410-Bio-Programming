@@ -15,6 +15,10 @@ genome <- read.csv("C:/Users/klin/Desktop/KL/Training/Master/Courses/UoG-BINF641
 
 genome <- as.character(unlist(genome))
 
+genome <- strsplit(genome,split = "")
+
+genome <- paste0(genome,collapse = "")
+
 gene_description <- read.csv("C:/Users/klin/Desktop/KL/Training/Master/Courses/UoG-BINF6410-Bio-Programming/Assignment/eh.gff3")
 
 treatment_type_final <- c()
