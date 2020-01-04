@@ -19,7 +19,14 @@ genome <- strsplit(genome,split = "")
 
 genome <- paste0(genome,collapse = "")
 
-gene_description <- read.csv("C:/Users/klin/Desktop/KL/Training/Master/Courses/UoG-BINF6410-Bio-Programming/Assignment/eh.gff3")
+gene_description <- unlist(read.csv("C:/Users/klin/Desktop/KL/Training/Master/Courses/UoG-BINF6410-Bio-Programming/Assignment/eh.gff3"))
+gene_description <- unlist(read.csv("C:/Users/klin/Desktop/KL/Training/Master/Courses/UoG-BINF6410-Bio-Programming/Assignment/eh.gff3"))
+
+gene_description_line <- readLines("C:/Users/klin/Desktop/KL/Training/Master/Courses/UoG-BINF6410-Bio-Programming/Assignment/eh.gff3")
+
+a <- gsub("![t]", "",strsplit(gene_description_line[3],split=""))
+
+gene_description_line[3]
 
 treatment_type_final <- c()
 gene_list_final <- c()
