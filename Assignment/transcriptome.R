@@ -13,29 +13,40 @@ gene_list <- read.csv("C:/Users/klin/Desktop/KL/Training/Master/Courses/UoG-BINF
 
 genome <- read.csv("C:/Users/klin/Desktop/KL/Training/Master/Courses/UoG-BINF6410-Bio-Programming/Assignment/eh.fa")
 
-gene_description <- read.csv("C:/Users/klin/Desktop/KL/Training/Master/Courses/UoG-BINF6410-Bio-Programming/Assignment/eh.gff3")
+genome <- as.character(unlist(genome))
+
+genome <- strsplit(genome,split = "")
+
+genome <- paste0(genome,collapse = "")
+
+gene_description <- unlist(read.csv("C:/Users/klin/Desktop/KL/Training/Master/Courses/UoG-BINF6410-Bio-Programming/Assignment/eh.gff3"))
+gene_description <- unlist(read.csv("C:/Users/klin/Desktop/KL/Training/Master/Courses/UoG-BINF6410-Bio-Programming/Assignment/eh.gff3"))
+
+gene_description_line <- readLines("C:/Users/klin/Desktop/KL/Training/Master/Courses/UoG-BINF6410-Bio-Programming/Assignment/eh.gff3")
+
+a <- gsub("![t]", "",strsplit(gene_description_line[3],split=""))
+
+gene_description_line[3]
 
 treatment_type_final <- c()
 gene_list_final <- c()
 
+b <- ncol(gene_list) +1
 
-for (i in seq(2:ncol(gene_list)))
+for (i in seq(2:b))
 {
-
 a <- as.character(unlist(gene_list[i]))
+a<-a[grepl("[A-Z]",a)]
 
-a >- 
-    
-treatment_type <- rep(colnames(gene_list[i]),length(unlist(gene_list[i])))
+treatment_type <- rep(colnames(gene_list[i]),length(a))
 
 treatment_type_final <- c(treatment_type,treatment_type_final)
 
-gene_list_final <-c(gene_list_final,unlist(gene_list[i]))
+gene_list_final <-c(gene_list_final,a)
 
 }
 
 
-a <- as.character(unlist(gene_list[2]))
 
 
 kmer <- c("genename","AA", "AT", "AC","AG","TA","TT","TC","TG","CA","CC","CT","CG","GA","GT","GC","GG","treatment")
